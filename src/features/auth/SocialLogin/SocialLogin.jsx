@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
-const SocialLogin = ({  }) => {
+const SocialLogin = ({ socialLogin }) => {
   return (
     <div>
-      <Button type="button" color='google plus'>
+      <Button onClick={() => socialLogin('google')} type="button" color='google plus'>
         <Icon name='google plus'/>
         Login with Google!
       </Button>
