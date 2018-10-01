@@ -1,10 +1,12 @@
-import { LOGIN_USER, LOGOUT_USER } from './authConstants';
+import { LOGOUT_USER } from './authConstants';
 
 export const login = creds => {
-  return {
-    type: LOGIN_USER,
-    payload: {
-      creds
+  return async (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+    try {
+      await firebase.auth().signInWithEmailAndPassword(creds.email, creds.password);
+    } catch (error) {
+      console.log(error);
     }
   };
 };
