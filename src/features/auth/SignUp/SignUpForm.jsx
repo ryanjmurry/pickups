@@ -3,14 +3,15 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Form, Segment, Button, Label } from 'semantic-ui-react';
 import TextInput from '../../../app/common/form/TextInput';
-import { signUpUser } from '../authActions';
+import { signUpUser, socialLogin } from '../authActions';
 import SocialLogin from '../SocialLogin/SocialLogin'
 
 const actions = {
-  signUpUser
+  signUpUser,
+  socialLogin
 };
 
-const SignUpForm = ({ signUpUser, handleSubmit, error }) => {
+const SignUpForm = ({ signUpUser, handleSubmit, error, socialLogin }) => {
   return (
     <Form onSubmit={handleSubmit(signUpUser)}>
       <Segment>
@@ -25,7 +26,7 @@ const SignUpForm = ({ signUpUser, handleSubmit, error }) => {
           )}
         </div>
         <Button color="green">Game On!</Button>
-        <SocialLogin />
+        <SocialLogin socialLogin={socialLogin}/>
       </Segment>
     </Form>
   );
