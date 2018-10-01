@@ -6,6 +6,7 @@ import PickUpDashboard from '../../features/pickup/PickUpDashboard/PickUpDashboa
 import LoginForm from '../../features/auth/Login/LoginForm';
 import { Container, Button } from 'semantic-ui-react';
 import SignUpForm from '../../features/auth/SignUp/SignUpForm';
+import NavBar from '../../features/nav/NavBar/NavBar';
 
 class App extends Component {
   handleSignOut = () => {
@@ -14,6 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <NavBar />
         <Container>
           <Button onClick={this.handleSignOut}>Logout of Firebase</Button>
           <Switch>
