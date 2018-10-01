@@ -1,5 +1,4 @@
 import { SubmissionError } from 'redux-form';
-import { LOGOUT_USER } from './authConstants';
 
 export const login = creds => {
   return async (dispatch, getState, { getFirebase }) => {
@@ -11,11 +10,5 @@ export const login = creds => {
         _error: 'Login Failed'
       })
     }
-  };
-};
-
-export const logout = () => {
-  return {
-    type: LOGOUT_USER
   };
 };
