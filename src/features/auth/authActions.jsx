@@ -42,3 +42,30 @@ export const signUpUser = user => {
     }
   };
 };
+
+export const socialLogin = selectedProvider => {
+  return async (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase();
+    const firestore = getFirestore();
+    try {
+      // logins firebase user with social login
+      // set socal login provider and specifies that the type of login it should be should be a popup
+      let user = await firebase.login({
+        provider: selectedProvider,
+        type: 'popup'
+      });
+
+      //checks against uder object created if they are a new user
+      // if they are a new user, this specifies which data should be stored in firestore under the users collection
+      if (user.additionalUserInfo.isNewUser) {
+        await firestore.set(`users/${user.user.uid}`, {
+          displayName: user.profile.displayName,
+          photoURL: user.profile.avatarUrl,
+          createdAt: firestore.FieldValue.serverTimestamp()
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
