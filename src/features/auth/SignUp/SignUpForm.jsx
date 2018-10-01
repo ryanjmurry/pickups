@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Segment, Button, Label } from 'semantic-ui-react';
 import TextInput from '../../../app/common/form/TextInput';
 import { signUpUser } from '../authActions';
+import SocialLogin from '../SocialLogin/SocialLogin'
 
 const actions = {
   signUpUser
@@ -24,6 +25,7 @@ const SignUpForm = ({ signUpUser, handleSubmit, error }) => {
           )}
         </div>
         <Button color="green">Game On!</Button>
+        <SocialLogin />
       </Segment>
     </Form>
   );
