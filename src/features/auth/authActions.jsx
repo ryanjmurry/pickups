@@ -1,3 +1,4 @@
+import { SubmissionError } from 'redux-form';
 import { LOGOUT_USER } from './authConstants';
 
 export const login = creds => {
@@ -6,7 +7,9 @@ export const login = creds => {
     try {
       await firebase.auth().signInWithEmailAndPassword(creds.email, creds.password);
     } catch (error) {
-      console.log(error);
+      throw new SubmissionError({
+        _error: 'Login Failed'
+      })
     }
   };
 };
