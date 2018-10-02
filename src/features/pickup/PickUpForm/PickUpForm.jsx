@@ -5,7 +5,7 @@ import TextInput from '../../../app/common/form/TextInput';
 import TextArea from '../../../app/common/form/TextArea';
 import SelectInput from '../../../app/common/form/SelectInput';
 import DateInput from '../../../app/common/form/DateInput';
-import { createPickup, updatePickup } from '../pickupActions';
+import { createPickup, updatePickup, cancelPickupToggle } from '../pickupActions';
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase';
 
@@ -24,7 +24,8 @@ const mapState = state => {
 
 const actions = {
   createPickup,
-  updatePickup
+  updatePickup,
+  cancelPickupToggle
 };
 
 const skillLevel = [
@@ -47,6 +48,11 @@ class PickupForm extends Component {
     } else {
       this.props.createPickup(values);
     }
+  };
+
+  handleTogglePickup = () => {
+    const { pickup } = this.props;
+    this.props.cancelPickupToggle(!pickup.cancelled, pickup.id)
   };
 
   async componentDidMount() {
@@ -105,6 +111,10 @@ class PickupForm extends Component {
           showTimeSelect
         />
         <Button color="teal" content={pickup.id ? 'Update Pickup' : 'Create Pickup'} />
+        <Button
+          onClick={this.handleTogglePickup}
+          content={pickup.cancelled ? 'Revive pickup' : 'Cancel pickup'}
+        />
       </Form>
     );
   }
