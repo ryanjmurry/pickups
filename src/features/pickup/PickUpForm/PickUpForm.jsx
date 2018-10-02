@@ -112,7 +112,8 @@ class PickupForm extends Component {
         />
         <Button color="teal" content={pickup.id ? 'Update Pickup' : 'Create Pickup'} />
         <Button
-          onClick={this.handleTogglePickup}
+          onClick={(this.handleTogglePickup)}
+          type='button'
           content={pickup.cancelled ? 'Revive pickup' : 'Cancel pickup'}
         />
       </Form>
