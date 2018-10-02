@@ -57,7 +57,12 @@ class PickupForm extends Component {
 
   async componentDidMount() {
     const { firestore, match } = this.props;
-    await firestore.get(`pickups/${match.params.id}`);
+    await firestore.setListener(`pickups/${match.params.id}`)
+  }
+
+  async componentWillUnmount() {
+    const { firestore, match } = this.props;
+    await firestore.unsetListener(`pickups/${match.params.id}`)
   }
 
   render() {
@@ -127,3 +132,4 @@ export default withFirestore(
     actions
   )(reduxForm({ form: 'pickupForm', enableReinitialize: true })(PickupForm))
 );
+
