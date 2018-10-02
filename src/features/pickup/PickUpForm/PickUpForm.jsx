@@ -68,7 +68,7 @@ class PickupForm extends Component {
           placeholder="What type of pickup game is it?"
         />
         <Field
-          name="capacity"
+          name="maxCapacity"
           type="number"
           min={2}
           component={TextInput}
