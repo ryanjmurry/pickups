@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
 import { Route, Switch } from 'react-router-dom';
 import SplashPage from '../../features/splash/SplashPage';
-import PickUpDashboard from '../../features/pickup/PickUpDashboard/PickUpDashboard';
+import PickupDashboard from '../../features/pickup/PickupDashboard/PickupDashboard';
 import LoginForm from '../../features/auth/Login/LoginForm';
 import { Container, Button } from 'semantic-ui-react';
 import SignUpForm from '../../features/auth/SignUp/SignUpForm';
@@ -17,12 +17,14 @@ class App extends Component {
       <div>
         <NavBar />
         <Container>
+          <br/>
+          <br/><br/><br/>
           <Button onClick={this.handleSignOut}>Logout of Firebase</Button>
           <Switch>
             <Route exact path="/" component={SplashPage} />
-            <Route path="/pickups" component={PickUpDashboard} />
-            <Route path='/sign_in' component={LoginForm} />
-            <Route path='/sign_up' component={SignUpForm} />
+            <Route path="/pickups" component={PickupDashboard} />
+            <Route path='/login' component={LoginForm} />
+            <Route path='/signup' component={SignUpForm} />
           </Switch>
         </Container>
       </div>
