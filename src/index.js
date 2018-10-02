@@ -29,7 +29,6 @@ if (module.hot) {
   });
 }
 
-// render won't occur until auth is ready
 store.firebaseAuthIsReady.then(() => {
   render();
 });
