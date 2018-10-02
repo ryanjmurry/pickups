@@ -103,7 +103,7 @@ class PickupForm extends Component {
           timeCaption="time"
           showTimeSelect
         />
-        <Button color="teal">Create Pickup!</Button>
+        <Button color="teal" content={pickup.id ? 'Update Pickup' : 'Create Pickup'}></Button>
       </Form>
     );
   }
