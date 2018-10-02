@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form, Button, Label } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import TextInput from '../../../app/common/form/TextInput';
 import TextArea from '../../../app/common/form/TextArea';
 import SelectInput from '../../../app/common/form/SelectInput';
@@ -104,7 +104,7 @@ class PickupForm extends Component {
           timeCaption="time"
           showTimeSelect
         />
-        <Button color="teal" content={pickup.id ? 'Update Pickup' : 'Create Pickup'}></Button>
+        <Button color="teal" content={pickup.id ? 'Update Pickup' : 'Create Pickup'} />
       </Form>
     );
   }

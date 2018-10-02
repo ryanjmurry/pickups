@@ -13,23 +13,25 @@ import PickupDetailPage from '../../features/pickup/PickupDetail/PickupDetailPag
 class App extends Component {
   handleSignOut = () => {
     this.props.firebase.logout();
-  }
+  };
   render() {
     return (
       <div>
         <NavBar />
         <Container>
-          <br/>
-          <br/><br/><br/>
+          <br />
+          <br />
+          <br />
+          <br />
           <Button onClick={this.handleSignOut}>Logout of Firebase</Button>
           <Switch>
             <Route exact path="/" component={SplashPage} />
             <Route path="/pickups" component={PickupDashboard} />
-            <Route path='/newpickup' component={PickupForm} />
-            <Route path='/login' component={LoginForm} />
-            <Route path='/signup' component={SignUpForm} />
-            <Route path='/edit/:id' component={PickupForm} />
-            <Route path='/pickup/:id' component={PickupDetailPage} />
+            <Route path="/newpickup" component={PickupForm} />
+            <Route path="/login" component={LoginForm} />
+            <Route path="/signup" component={SignUpForm} />
+            <Route path="/edit/:id" component={PickupForm} />
+            <Route path="/pickup/:id" component={PickupDetailPage} />
           </Switch>
         </Container>
       </div>

@@ -25,7 +25,7 @@ const LoginForm = ({ login, handleSubmit, error, socialLogin }) => {
           )}
         </div>
         <Button color="green">Login</Button>
-        <SocialLogin socialLogin={socialLogin}/>
+        <SocialLogin socialLogin={socialLogin} />
       </Segment>
     </Form>
   );

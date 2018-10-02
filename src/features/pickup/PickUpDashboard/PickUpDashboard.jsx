@@ -5,7 +5,7 @@ import { firestoreConnect } from 'react-redux-firebase';
 
 const mapState = state => ({
   pickups: state.firestore.ordered.pickups
-})
+});
 
 class PickupDashboard extends Component {
   render() {
@@ -13,7 +13,7 @@ class PickupDashboard extends Component {
     return (
       <div>
         <h1>PickUp Dashboard</h1>
-        <PickupList pickups={pickups}/>
+        <PickupList pickups={pickups} />
       </div>
     );
   }

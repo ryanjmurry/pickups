@@ -27,7 +27,7 @@ class PickupDetailPage extends Component {
     return (
       <div>
         <h1>Pickup Detail</h1>
-        <Button as={Link} to={`/edit/${pickup.id}`} content='Edit Event'/>
+        <Button as={Link} to={`/edit/${pickup.id}`} content="Edit Event" />
       </div>
     );
   }

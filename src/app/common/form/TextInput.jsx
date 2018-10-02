@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { Form, Label } from 'semantic-ui-react';
 
-const TextInput = ({ input, width, type, placeholder, meta: { touched, error} }) => {
+const TextInput = ({ input, width, type, placeholder, meta: { touched, error } }) => {
   return (
     <Form.Field width={width} error={touched && !!error}>
       <input {...input} placeholder={placeholder} type={type} />
@@ -12,7 +12,7 @@ const TextInput = ({ input, width, type, placeholder, meta: { touched, error} })
           </Label>
         )}
     </Form.Field>
-  )
-}
+  );
+};
 
-export default TextInput
+export default TextInput;
