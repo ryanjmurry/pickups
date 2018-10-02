@@ -30,7 +30,7 @@ export const signUpUser = user => {
       // creates a new user object with the name given in the form and a serverTimestamp to get date joined
       let newUser = {
         displayName: user.name,
-        dateJoined: firestore.FieldValue.serverTimestamp()
+        createdAt: firestore.FieldValue.serverTimestamp()
       };
 
       // creates new document in the users collection in firestore with the same id as the createdUser id
