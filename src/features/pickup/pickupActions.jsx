@@ -34,3 +34,16 @@ export const updatePickup = pickup => {
     }
   };
 };
+
+export const cancelPickupToggle = (cancelled, pickupId) => {
+  return async (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    try {
+      await firestore.update(`pickups/${pickupId}`, {
+        cancelled: cancelled
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
