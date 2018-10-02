@@ -9,6 +9,7 @@ import SignUpForm from '../../features/auth/SignUp/SignUpForm';
 import NavBar from '../../features/nav/NavBar/NavBar';
 import PickupForm from '../../features/pickup/PickupForm/PickupForm';
 import PickupDetailPage from '../../features/pickup/PickupDetail/PickupDetailPage';
+import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
 
 class App extends Component {
   handleSignOut = () => {
@@ -32,6 +33,7 @@ class App extends Component {
             <Route path="/signup" component={SignUpForm} />
             <Route path="/edit/:id" component={PickupForm} />
             <Route path="/pickup/:id" component={PickupDetailPage} />
+            <Route path='/settings' component={SettingsDashboard} />
           </Switch>
         </Container>
       </div>
