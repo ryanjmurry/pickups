@@ -7,6 +7,7 @@ import LoginForm from '../../features/auth/Login/LoginForm';
 import { Container, Button } from 'semantic-ui-react';
 import SignUpForm from '../../features/auth/SignUp/SignUpForm';
 import NavBar from '../../features/nav/NavBar/NavBar';
+import PickupForm from '../../features/pickup/PickupForm/PickupForm';
 
 class App extends Component {
   handleSignOut = () => {
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={SplashPage} />
             <Route path="/pickups" component={PickupDashboard} />
+            <Route path='/newpickup' component={PickupForm} />
             <Route path='/login' component={LoginForm} />
             <Route path='/signup' component={SignUpForm} />
           </Switch>
