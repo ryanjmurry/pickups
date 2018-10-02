@@ -48,6 +48,11 @@ class PickupForm extends Component {
     }
   };
 
+  async componentDidMount() {
+    const { firestore, match } = this.props;
+    await firestore.get(`pickups/${match.params.id}`);
+  }
+
   render() {
     const { handleSubmit, invalid, submitting, pristine, pickup } = this.props;
     return (
@@ -108,5 +113,5 @@ export default withFirestore(
   connect(
     mapState,
     actions
-  )(reduxForm({ form: 'pickupForm' })(PickupForm))
+  )(reduxForm({ form: 'pickupForm', enableReinitialize: true })(PickupForm))
 );
