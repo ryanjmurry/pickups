@@ -55,7 +55,7 @@ export const socialLogin = selectedProvider => {
         type: 'popup'
       });
 
-      //checks against uder object created if they are a new user
+      //checks against user object created if they are a new user
       // if they are a new user, this specifies which data should be stored in firestore under the users collection
       if (user.additionalUserInfo.isNewUser) {
         await firestore.set(`users/${user.user.uid}`, {
