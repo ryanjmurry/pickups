@@ -1,3 +1,0 @@
-export const CREATE_PICKUP = 'CREATE_PICKUP';
-export const UPDATE_PICKUP = 'UPDATE_PICKUP';
-export const DELETE_PICKUP = 'DELETE_PICKUP';
