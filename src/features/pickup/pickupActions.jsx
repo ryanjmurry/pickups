@@ -23,3 +23,14 @@ export const createPickup = pickup => {
     }
   }
 }
+
+export const updatePickup = pickup => {
+  return async (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    try {
+      await firestore.update(`pickups/${pickup.id}`, pickup)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
