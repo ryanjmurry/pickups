@@ -5,7 +5,7 @@ import TextInput from '../../../app/common/form/TextInput';
 import TextArea from '../../../app/common/form/TextArea';
 import SelectInput from '../../../app/common/form/SelectInput';
 import DateInput from '../../../app/common/form/DateInput';
-import { createPickup } from '../pickupActions';
+import { createPickup, updatePickup } from '../pickupActions';
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase';
 
@@ -23,7 +23,8 @@ const mapState = state => {
 };
 
 const actions = {
-  createPickup
+  createPickup,
+  updatePickup
 };
 
 const skillLevel = [
