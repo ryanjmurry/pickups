@@ -7,6 +7,7 @@ export const createNewPickup = (user, photoURL, pickup) => {
     ...pickup,
     hostUid: user.uid,
     hostedBy: user.displayName,
+    currentCapacity: 1,
     hostPhotoURL: photoURL || '/assets/user.png',
     created: Date.now(),
     attendees: {
