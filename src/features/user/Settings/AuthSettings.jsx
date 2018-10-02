@@ -3,12 +3,30 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
 import TextInput from '../../../app/common/form/TextInput';
 
-const AuthSettings = () => {
+const AuthSettings = ({ providerId }) => {
   return (
-    <Form>
-        <Field name="newPassword1" type="password" component={TextInput} placeholder="Enter your new password" />
-        <Field name="newPassword2" type="password" component={TextInput} placeholder="Confirm new password" />
-    </Form>
+    <div>
+      {providerId &&
+        providerId === 'password' && (
+          <Form>
+            <Field
+              name="newPassword1"
+              type="password"
+              component={TextInput}
+              placeholder="Enter your new password"
+            />
+            <Field
+              name="newPassword2"
+              type="password"
+              component={TextInput}
+              placeholder="Confirm new password"
+            />
+            <Button content='Update profile'/>
+          </Form>
+        )}
+      {providerId &&
+        providerId === 'google.com' && <Button>Go to google to update this ish!</Button>}
+    </div>
   );
 };
 
