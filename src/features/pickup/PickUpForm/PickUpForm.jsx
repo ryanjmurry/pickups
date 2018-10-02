@@ -33,17 +33,20 @@ const skillLevel = [
   { key: 'superstar', text: 'Superstar', value: 'superstar' }
 ];
 
-
+const pickupType = [
+  { key: 'rec', text: 'Recreational', value: 'rec' },
+  { key: 'table', text: 'Table-Top', value: 'table' },
+  { key: 'video', text: 'Video', value: 'video' }
+];
 
 class PickupForm extends Component {
-  
   onFormSubmit = values => {
-    if(this.props.initialValues.id) {
+    if (this.props.initialValues.id) {
       this.props.updatePickup(values);
     } else {
-      this.props.createPickup(values)
+      this.props.createPickup(values);
     }
-  }
+  };
 
   render() {
     const { handleSubmit, invalid, submitting, pristine, pickup } = this.props;
@@ -56,6 +59,13 @@ class PickupForm extends Component {
           component={SelectInput}
           options={skillLevel}
           placeholder="What's the desired skill level of players?"
+        />
+        <Field
+          name="type"
+          type="text"
+          component={SelectInput}
+          options={pickupType}
+          placeholder="What type of pickup game is it?"
         />
         <Field
           name="capacity"
