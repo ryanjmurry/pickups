@@ -7,16 +7,16 @@ export const createNewPickup = (user, photoURL, pickup) => {
     ...pickup,
     hostUid: user.uid,
     hostedBy: user.displayName,
-    hostPhotoURL: photoURL || "/assets/user.png",
+    hostPhotoURL: photoURL || '/assets/user.png',
     created: Date.now(),
-    attendees: [
+    attendees: {
       [user.uid]: {
         going: true,
         joinDate: Date.now(),
-        photoURL: photoURL || "/assets/user.png",
+        photoURL: photoURL || '/assets/user.png',
         displayName: user.displayName,
         host: true
       }
-    ]
-  }
-}
+    }
+  };
+};
