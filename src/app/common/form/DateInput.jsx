@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 
+//reusable date input for redux form fields
 const DateInput = ({
   input: { value, onChange, onBlur, ...restInput },
   width,
@@ -12,15 +13,14 @@ const DateInput = ({
   ...rest
 }) => {
   if (value) {
-    // parsing value using moment and formatting to a unix timestamp uniformity
-    value = moment(value, 'X');
+    value = moment(value, 'X'); // parsing value using moment and formatting to unix timestamp uniformity
   }
   return (
     <Form.Field error={touched && !!error} width={width}>
       <DatePicker
         {...rest}
         placeholderText={placeholder}
-        selected={value ? moment(value) : null} 
+        selected={value ? moment(value) : null}
         onChange={onChange}
         onBlur={() => onBlur()}
         {...restInput}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button, Icon } from 'semantic-ui-react';
 
+
+// reusable social login component for future authentication services
 const SocialLogin = ({ socialLogin }) => {
   return (
     <div>
