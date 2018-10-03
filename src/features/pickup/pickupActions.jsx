@@ -11,7 +11,7 @@ export const createPickup = pickup => {
     let newPickup = createNewPickup(user, photoURL, pickup);
     try {
       let createdPickup = await firestore.add(`pickups`, newPickup);
-      await firestore.set(`pickup_attendee/${createdPickup.id}_{user.uid}`, {
+      await firestore.set(`pickup_attendee/${createdPickup.id}_${user.uid}`, {
         pickupId: createdPickup.id,
         userUid: user.uid,
         pickupDate: pickup.date,

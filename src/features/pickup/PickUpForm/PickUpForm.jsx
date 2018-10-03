@@ -66,7 +66,7 @@ class PickupForm extends Component {
   }
 
   render() {
-    const { handleSubmit, invalid, submitting, pristine, pickup } = this.props;
+    const { handleSubmit, pickup } = this.props;
     return (
       <Form onSubmit={handleSubmit(this.onFormSubmit)}>
         <Field name="title" type="text" component={TextInput} placeholder="Title your pickup!" />
