@@ -41,3 +41,20 @@ export const registerForPickupGame = pickup => {
     }
   };
 };
+
+export const unregisterForPickupGame = pickup => {
+  return async (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+    const user = firestore.auth().currentUser;
+    console.log(pickup.id)
+    console.log(user.uid)
+    try {
+      await firestore.update(`pickups/${pickup.id}`, {
+        [`attendees.${user.uid}`]: firestore.FieldValue.delete()
+      });
+      await firestore.delete(`pickup_attendee/${pickup.id}_${user.uid}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
