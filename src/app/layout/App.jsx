@@ -9,11 +9,18 @@ import PickupForm from '../../features/pickup/PickupForm/PickupForm';
 import PickupDetailPage from '../../features/pickup/PickupDetail/PickupDetailPage';
 import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
 
+const bodyStyles = {
+  marginTop: '60px'
+}
+
 class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <div>
+          <NavBar />
+        </div>
+        <div style={bodyStyles}>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/login" component={LoginForm} />
@@ -22,8 +29,9 @@ class App extends Component {
             <Route path="/newpickup" component={PickupForm} />
             <Route path="/edit/:id" component={PickupForm} />
             <Route path="/pickup/:id" component={PickupDetailPage} />
-            <Route path='/settings' component={SettingsDashboard} />
+            <Route path="/settings" component={SettingsDashboard} />
           </Switch>
+        </div>
       </div>
     );
   }
