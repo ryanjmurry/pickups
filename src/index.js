@@ -8,6 +8,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { Provider } from 'react-redux';
 import { configureStore } from './app/store/configureStore';
 
+// begin development branch
 const store = configureStore();
 
 const rootEl = document.getElementById('root');
