@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
 import { Route, Switch } from 'react-router-dom';
-import SplashPage from '../../features/splash/SplashPage';
+import HomePage from '../../features/home/HomePage';
 import PickupDashboard from '../../features/pickup/PickupDashboard/PickupDashboard';
 import LoginForm from '../../features/auth/Login/LoginForm';
 import { Container, Button } from 'semantic-ui-react';
@@ -26,7 +26,7 @@ class App extends Component {
           <br />
           <Button onClick={this.handleSignOut}>Logout of Firebase</Button>
           <Switch>
-            <Route exact path="/" component={SplashPage} />
+            <Route exact path="/" component={HomePage} />
             <Route path="/pickups" component={PickupDashboard} />
             <Route path="/newpickup" component={PickupForm} />
             <Route path="/login" component={LoginForm} />
