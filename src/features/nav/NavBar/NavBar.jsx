@@ -1,12 +1,24 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Header } from 'semantic-ui-react';
 import SignedInMenu from '../Menus/SignedInMenu';
 import SignedOutMenu from '../Menus/SignedOutMenu';
 
+const logoText = {
+  fontFamily: 'Righteous',
+  fontSize: '1.25em',
+  color: 'black'
+}
+
+const navStyles = {
+  border: '1px solid black'
+}
+
 const NavBar = () => {
   return (
-    <Menu inverted color="black" fixed="top">
-      <Menu.Item header>Pickups</Menu.Item>
+    <Menu size='massive' fixed="top" text style={navStyles}>
+      <Menu.Item>
+        <Header style={logoText}>p i c k u p s</Header>
+      </Menu.Item>
       {/* <SignedInMenu /> */}
       {/* <SignedOutMenu /> */}
     </Menu>
