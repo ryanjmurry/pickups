@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { registerForPickupGame } from '../../user/userActions';
+import { registerForPickupGame, unregisterForPickupGame } from '../../user/userActions';
 
 const mapState = state => {
   let pickup = {};
@@ -16,7 +16,8 @@ const mapState = state => {
 };
 
 const actions = {
-  registerForPickupGame
+  registerForPickupGame, 
+  unregisterForPickupGame
 }
 
 class PickupDetailPage extends Component {
@@ -29,13 +30,13 @@ class PickupDetailPage extends Component {
   }
 
   render() {
-    const { pickup, registerForPickupGame } = this.props;
+    const { pickup, registerForPickupGame, unregisterForPickupGame } = this.props;
     return (
       <div>
         <h1>Pickup Detail</h1>
         <Button as={Link} to={`/edit/${pickup.id}`} content="Edit Event" />
         <Button onClick={() => registerForPickupGame(pickup)} content="Join Pickup" />
-        <Button content="Leave Pickup" />
+        <Button onClick={() => unregisterForPickupGame(pickup)} content="Leave Pickup" />
       </div>
     );
   }
