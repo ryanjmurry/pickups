@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Label, Select } from 'semantic-ui-react';
 
+//reusable select input for redux form fields
 const SelectInput = ({ input, placeholder, multiple, options, meta: { touched, error } }) => {
   return (
     <Form.Field>

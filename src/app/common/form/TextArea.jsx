@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Label } from 'semantic-ui-react';
 
+//reusable text area input for redux form fields
 const TextArea = ({ input, rows, type, placeholder, meta: { touched, error } }) => {
   return (
     <Form.Field error={touched && !!error}>

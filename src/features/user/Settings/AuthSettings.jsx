@@ -3,6 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 import { Form, Button } from 'semantic-ui-react';
 import TextInput from '../../../app/common/form/TextInput';
 
+
+// if email provider, provide way to update email
+// if google provider, provide link to google account to update there
 const AuthSettings = ({ providerId }) => {
   return (
     <div>
@@ -31,6 +34,3 @@ const AuthSettings = ({ providerId }) => {
 };
 
 export default reduxForm({ form: 'authSettingsForm' })(AuthSettings);
-
-//if email provider, provide way to update email
-// if google provider, provide link to google account to update there
