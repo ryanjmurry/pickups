@@ -5,9 +5,9 @@ import TextInput from '../../../app/common/form/TextInput';
 import DateInput from '../../../app/common/form/DateInput';
 import TextArea from '../../../app/common/form/TextArea';
 
-const GeneralSettings = () => {
+const GeneralSettings = ({updateProfile, handleSubmit}) => {
   return (
-    <Form>
+    <Form onSubmit={handleSubmit(updateProfile)}>
       <h1>General Settings</h1>
       <Field name="displayName" component={TextInput} placeholder="What name do you go by?" />
       <Field
