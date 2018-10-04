@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import PickupDashboardHeader from './PickupDashboardHeader';
 import PickupDashboardSlogan from './PickupDashboardSlogan';
+import PickupList from '../PickupList/PickupList';
 
 const mapState = state => ({
   pickups: state.firestore.ordered.pickups,
@@ -17,10 +18,12 @@ class PickupDashboard extends Component {
         <div style={{ position: 'relative', marginBottom: '-400px', zIndex: '-1' }}>
           <PickupDashboardHeader />
         </div>
-        <div style={{position: 'absolute', left: '250px', top: '220px'}}>
-          <PickupDashboardSlogan auth={auth}/>
-        </div >
-        <div style={{marginTop: '175px'}}/>
+        <div style={{ position: 'relative', left: '150px', top: '180px', marginBottom: '190px' }}>
+          <PickupDashboardSlogan auth={auth} />
+        </div>
+        <div style={{width: '800px', margin: 'auto'}}>
+          <PickupList />
+        </div>
       </div>
     );
   }
