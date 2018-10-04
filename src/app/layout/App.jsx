@@ -10,7 +10,7 @@ import PickupDetailPage from '../../features/pickup/PickupDetail/PickupDetailPag
 import SettingsDashboard from '../../features/user/Settings/SettingsDashboard';
 
 const bodyStyles = {
-  paddingTop: '4.2em'
+  paddingTop: '4.1em'
 }
 
 class App extends Component {
