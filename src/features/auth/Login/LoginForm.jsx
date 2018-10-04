@@ -30,9 +30,7 @@ class LoginForm extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
       this.props.history.push('/pickups');
-    } else if (!prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
-      this.props.history.push('/')
-    }
+    } 
   }
 
   handleFormSubmission = values => {

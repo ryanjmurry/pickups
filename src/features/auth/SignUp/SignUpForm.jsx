@@ -31,9 +31,7 @@ class SignUpForm extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
       this.props.history.push('/settings');
-    } else if (!prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
-      this.props.history.push('/')
-    }
+    } 
   }
 
   handleFormSubmission = values => {
