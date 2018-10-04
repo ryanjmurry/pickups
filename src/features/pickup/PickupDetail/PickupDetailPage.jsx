@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withFirestore } from 'react-redux-firebase';
-import { Button } from 'semantic-ui-react';
+import { Button, Segment, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { registerForPickupGame, unregisterForPickupGame } from '../../user/userActions';
+import PickupHeader from './PickupHeader';
+import PickupChat from './PickupChat';
+import PickupRegisteredPlayers from './PickupRegisteredPlayers';
+import PickupInformation from './PickupInformation';
 
 const mapState = state => {
   let pickup = {};
@@ -11,14 +15,15 @@ const mapState = state => {
     pickup = state.firestore.ordered.pickups[0];
   }
   return {
-    pickup
+    pickup,
+    auth: state.firebase.auth
   };
 };
 
 const actions = {
-  registerForPickupGame, 
+  registerForPickupGame,
   unregisterForPickupGame
-}
+};
 
 class PickupDetailPage extends Component {
   async componentDidMount() {
@@ -30,16 +35,45 @@ class PickupDetailPage extends Component {
   }
 
   render() {
-    const { pickup, registerForPickupGame, unregisterForPickupGame } = this.props;
+    const { pickup, registerForPickupGame, unregisterForPickupGame, auth } = this.props;
     return (
       <div>
-        <h1>Pickup Detail</h1>
-        <Button as={Link} to={`/edit/${pickup.id}`} content="Edit Event" />
-        <Button onClick={() => registerForPickupGame(pickup)} content="Join Pickup" />
-        <Button onClick={() => unregisterForPickupGame(pickup)} content="Leave Pickup" />
+        <Segment>
+          <h1 style={{ fontFamily: 'Righteous', fontSize: '5em' }}>{pickup.title}</h1>
+          <Grid columns={2}>
+            <Grid.Row stretched>
+              <Grid.Column width={11}>
+                <Segment>
+                  <PickupHeader
+                    pickup={pickup}
+                    auth={auth}
+                    registerForPickupGame={registerForPickupGame}
+                    unregisterForPickupGame={unregisterForPickupGame}
+                  />
+                </Segment>
+                <Segment>
+                  <PickupChat />
+                </Segment>
+              </Grid.Column>
+              <Grid.Column width={5}>
+                <Segment>
+                  <PickupRegisteredPlayers pickup={pickup} />
+                </Segment>
+                <Segment>
+                  <PickupInformation pickup={pickup} auth={auth} />
+                </Segment>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
       </div>
     );
   }
 }
 
-export default withFirestore(connect(mapState, actions)(PickupDetailPage));
+export default withFirestore(
+  connect(
+    mapState,
+    actions
+  )(PickupDetailPage)
+);
