@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Header } from 'semantic-ui-react';
 import SignedInMenu from '../Menus/SignedInMenu';
@@ -28,7 +29,7 @@ class NavBar extends Component {
     const { auth } = this.props
     return (
       <Menu size="huge" fixed="top" text style={navStyles}>
-        <Menu.Item>
+        <Menu.Item as={Link} to='/'>
           <Header style={logoText}>p i c k u p s</Header>
         </Menu.Item>
         {!auth.isEmpty && <SignedInMenu onLogOut={this.handleLogOut} auth={auth}/>}
