@@ -1,12 +1,13 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 import BackgroundSlideshow from 'react-background-slideshow';
-import arcade from '../../app/assets/arcade.jpg';
 import bball from '../../app/assets/bball.jpg';
 import boardGame from '../../app/assets/board-game.jpg';
 import bowling from '../../app/assets/bowling.jpg';
 import tugOfWar from '../../app/assets/tugofwar.jpg';
-import xbox from '../../app/assets/xbox.jpg';
+import controller from '../../app/assets/controller.jpg'
+import arcadeGame from '../../app/assets/arcarde-game.jpg'
+import cards from '../../app/assets/cards.jpg'
 
 const slideShowStyle = {
   height: '460px',
@@ -17,9 +18,9 @@ const slideShowStyle = {
 const Slideshow = () => {
   return (
     <div>
-      <Segment style={slideShowStyle} textAlign="center">
+      <Segment style={slideShowStyle}>
         <BackgroundSlideshow
-          images={[arcade, bball, boardGame, bowling, tugOfWar, xbox]}
+          images={[controller, arcadeGame, tugOfWar, bowling, boardGame, bball, cards]}
           animationDelay={6000}
         />
       </Segment>
