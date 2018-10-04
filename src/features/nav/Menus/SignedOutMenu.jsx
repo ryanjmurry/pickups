@@ -9,6 +9,12 @@ const menuStyles = {
 const SignedOutMenu = () => {
   return (
     <Menu.Menu position="right" style={menuStyles}>
+      <Menu.Item as={Link} to="/newpickup">
+        <Button color="purple" basic style={{fontSize: '0.7em'}}>
+          <Icon name="add" />
+          create pickup
+        </Button>
+      </Menu.Item>
       <Menu.Item as={Link} to="/pickups">
         <span style={{ color: '#a333c8', fontWeight: 'bold' }}>view all pickups</span>
       </Menu.Item>
