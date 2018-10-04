@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
@@ -17,18 +17,21 @@ const actions = {
   socialLogin
 };
 
-class LoginForm extends Component {
+const loginFormStyle = {
+  width: '400px',
+  margin: 'auto'
+}
 
+class LoginForm extends Component {
   handleFormSubmission = values => {
     this.props.login(values);
-    this.props.history.push('/pickups')
-  }
+    this.props.history.push('/pickups');
+  };
 
   render() {
-    const { error, socialLogin } = this.props
+    const { error, socialLogin } = this.props;
     return (
-      <Grid centered columns={4}>
-      <Grid.Column>
+      <Segment centered basic style={loginFormStyle}>
         <Form onSubmit={this.props.handleSubmit(this.handleFormSubmission)}>
           <Segment.Group>
             <Segment textAlign="center">
@@ -62,9 +65,8 @@ class LoginForm extends Component {
             </Segment>
           </Segment.Group>
         </Form>
-      </Grid.Column>
-    </Grid>
-    )
+      </Segment>
+    );
   }
 }
 
