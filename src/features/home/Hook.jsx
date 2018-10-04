@@ -6,14 +6,12 @@ const sloganHeaderStyles = {
   fontFamily: 'Righteous',
   fontSize: '5em',
   color: 'white',
-  textAlign: 'center'
 };
 
 const sloganTagStyles = {
   fontFamily: 'Righteous',
   fontSize: '2.8em',
   color: 'white',
-  textAlign: 'center'
 };
 
 const buttonStyles = {
@@ -30,7 +28,7 @@ const Hook = () => {
         <h3 style={sloganTagStyles}>bringing people together through games</h3>
       </Grid.Row>
       <Grid.Row>
-        <Button as={Link} to='/signup' basic color='white' inverted size='huge' style={buttonStyles}>Join Today!</Button>
+        <Button as={Link} to='/signup' basic color='white' inverted size='huge' style={buttonStyles}>join today</Button>
       </Grid.Row>
     </Grid>
   );
