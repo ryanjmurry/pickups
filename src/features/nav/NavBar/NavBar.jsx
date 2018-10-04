@@ -8,13 +8,12 @@ import SignedOutMenu from '../Menus/SignedOutMenu';
 
 const logoText = {
   fontFamily: 'Righteous',
-  fontSize: '2em',
+  fontSize: '1.8em',
   color: 'black'
 };
 
 const navStyles = {
-  marginTop: '10px',
-  borderBottom: '1px solid black'
+  marginTop: '10px'
 };
 
 const mapState = state => ({
