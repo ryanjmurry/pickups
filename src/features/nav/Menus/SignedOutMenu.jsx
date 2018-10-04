@@ -14,7 +14,7 @@ const SignedOutMenu = () => {
   return (
     <Menu.Menu position="right" style={menuStyles}>
       <Menu.Item style={createButtonStyles}>
-        <Button as={Link} to="/newpickup" basic size='mini'>
+        <Button as={Link} to="/newpickup" basic color='purple'>
           <Icon name="add" />
           create pickup
         </Button>
