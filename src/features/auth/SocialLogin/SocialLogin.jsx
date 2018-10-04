@@ -6,9 +6,9 @@ import { Button, Icon } from 'semantic-ui-react';
 const SocialLogin = ({ socialLogin }) => {
   return (
     <div>
-      <Button onClick={() => socialLogin('google')} type="button" color="google plus">
-        <Icon name="google plus" />
-        Login with Google!
+      <Button onClick={() => socialLogin('google')} type="button"  color='black' basic fluid style={{fontSize: '1.4em', fontWeight: 'bolder', color:'black'}}>
+        <Icon name="google"/>
+        login with google
       </Button>
     </div>
   );
