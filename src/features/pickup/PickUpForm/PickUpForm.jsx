@@ -63,6 +63,7 @@ class PickupForm extends Component {
   onFormSubmit = values => {
     if (this.props.initialValues.id) {
       this.props.updatePickup(values);
+      this.props.history.push('/pickups')
     } else if (!this.props.auth.isEmpty) {
       this.props.createPickup(values);
       this.props.history.push('/pickups')
