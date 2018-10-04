@@ -6,11 +6,15 @@ const style = {
   marginRight: '15px'
 };
 
+const createButtonStyles ={
+  fontSize: '0.8em'
+}
+
 
 const SignedInMenu = ({ onLogOut, auth }) => {
   return (
     <Menu.Menu position="right">
-      <Menu.Item>
+      <Menu.Item style={createButtonStyles}>
         <Button as={Link} to='/newpickup' basic>
           <Icon name="add" />
           create pickup
