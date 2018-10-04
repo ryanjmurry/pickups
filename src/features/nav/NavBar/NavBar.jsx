@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withFirebase } from 'react-redux-firebase';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Menu, Header } from 'semantic-ui-react';
 import SignedInMenu from '../Menus/SignedInMenu';
@@ -23,6 +23,7 @@ const mapState = state => ({
 class NavBar extends Component {
   handleLogOut = () => {
     this.props.firebase.logout();
+    this.props.history.push('/')
   };
   render() {
     const { auth } = this.props
@@ -38,4 +39,4 @@ class NavBar extends Component {
   }
 }
 
-export default withFirebase(connect(mapState)(NavBar));
+export default withRouter(withFirebase(connect(mapState)(NavBar)));
