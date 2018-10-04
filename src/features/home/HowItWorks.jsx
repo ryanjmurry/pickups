@@ -14,7 +14,7 @@ const HowItWorks = () => {
         <h1 style={headerText}>how it works</h1>
       </Grid.Row>
       <Grid.Row>
-        <Step.Group size='massive'>
+        <Step.Group size='huge'>
           <Step as={Link} to='/signup'>
             <Icon name='user plus' />
             <Step.Content>
