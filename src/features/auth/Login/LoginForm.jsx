@@ -28,8 +28,10 @@ const loginFormStyle = {
 
 class LoginForm extends Component {
   componentDidUpdate(prevProps) {
-    if (this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
-      this.props.history.push('/pickups')
+    if (prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
+      this.props.history.push('/pickups');
+    } else if (!prevProps.auth.isEmpty && this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
+      this.props.history.push('/')
     }
   }
 
@@ -38,7 +40,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { error, socialLogin } = this.props;
+    const { error, socialLogin, auth } = this.props;
     return (
       <Segment centered basic style={loginFormStyle}>
         <Form onSubmit={this.props.handleSubmit(this.handleFormSubmission)}>
@@ -64,14 +66,20 @@ class LoginForm extends Component {
                   </Label>
                 )}
               </div>
-              <Button color="purple" style={{ fontSize: '1.25em' }}>
-                log in
-              </Button>
+              <Button
+                color="purple"
+                style={{ fontSize: '1.25em' }}
+                disabled={!auth.isEmpty}
+                content={!auth.isEmpty ? 'already logged in' : 'log in'}
+              />
             </Segment>
-            <Divider horizontal>Or</Divider>
-            <Segment basic>
-              <SocialLogin socialLogin={socialLogin} />
-            </Segment>
+            {auth.isEmpty &&
+            <span>
+              <Divider horizontal>Or</Divider>
+              <Segment basic>
+                <SocialLogin socialLogin={socialLogin} auth={auth} />
+              </Segment>
+            </span>}
           </Segment.Group>
         </Form>
       </Segment>
