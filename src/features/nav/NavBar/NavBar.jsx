@@ -9,7 +9,7 @@ import SignedOutMenu from '../Menus/SignedOutMenu';
 const logoText = {
   fontFamily: 'Righteous',
   fontSize: '1.8em',
-  color: 'black'
+  color: '#a333c8'
 };
 
 const navStyles = {
