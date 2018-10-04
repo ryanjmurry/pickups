@@ -33,12 +33,12 @@ const PickupGame = ({ pickup }) => {
           </Grid.Column>
           <Grid.Column>
             <Segment textAlign="right" basic>
-              <span style={{ marginRight: '10px', fontSize: '1em' }}>{pickup.type}</span>
+              <span style={{ marginRight: '10px', fontSize: '1em' }}>{pickup.type} / <span style={{fontStyle: 'italics'}}>{pickup.level}</span></span>
               <Icon
                 name={
-                  pickup.type === 'rec'
+                  pickup.type === 'recreational'
                     ? 'basketball ball'
-                    : pickup.type === 'table'
+                    : pickup.type === 'table top'
                       ? 'cubes'
                       : 'gamepad'
                 }
