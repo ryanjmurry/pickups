@@ -14,7 +14,7 @@ const SignedInMenu = ({ onLogOut, auth }) => {
   return (
     <Menu.Menu position="right">
       <Menu.Item style={createButtonStyles}>
-        <Button as={Link} to="/newpickup" basic>
+        <Button as={Link} to="/newpickup" basic color='purple'>
           <Icon name="add" />
           create pickup
         </Button>

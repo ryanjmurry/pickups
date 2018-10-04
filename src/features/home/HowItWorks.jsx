@@ -11,35 +11,35 @@ const HowItWorks = () => {
   return (
     <Grid centered>
       <Grid.Row>
-        <h1 style={headerText}>how it works</h1>
+        <h1 style={headerText}>how pickups works</h1>
       </Grid.Row>
       <Grid.Row>
-        <Step.Group size='massive'>
+        <Step.Group size='huge'>
           <Step as={Link} to='/signup'>
             <Icon name='user plus' />
             <Step.Content>
-              <Step.Title style={{marginBottom: '15px'}}>sign up</Step.Title>
+              <Step.Title style={{marginBottom: '15px', color: '#a333c8'}}>sign up</Step.Title>
               <Step.Description>don't worry, it's free!</Step.Description>
             </Step.Content>
           </Step>
           <Step as={Link} to='/pickups'>
             <Icon name='search' />
             <Step.Content>
-              <Step.Title style={{marginBottom: '15px'}}>find a pickup</Step.Title>
+              <Step.Title style={{marginBottom: '15px', color: '#a333c8'}}>find a pickup</Step.Title>
               <Step.Description>hurry, games fill up fast!</Step.Description>
             </Step.Content>
           </Step>
           <Step as={Link} to='/newpickup'>
             <Icon name='add circle' />
             <Step.Content>
-              <Step.Title style={{marginBottom: '15px'}}>create a pickup</Step.Title>
+              <Step.Title style={{marginBottom: '15px', color: '#a333c8'}}>create a pickup</Step.Title>
               <Step.Description>can't find a pickup? create one!</Step.Description>
             </Step.Content>
           </Step>
           <Step>
             <Icon name='users' />
             <Step.Content>
-              <Step.Title style={{marginBottom: '15px'}}>make friends</Step.Title>
+              <Step.Title style={{marginBottom: '15px', color: '#a333c8'}}>make friends</Step.Title>
               <Step.Description>it's that simple!</Step.Description>
             </Step.Content>
           </Step>
