@@ -100,55 +100,57 @@ class PickupForm extends Component {
                 name="title"
                 type="text"
                 component={TextInput}
-                placeholder="Title your pickup!"
+                placeholder="pickup title"
               />
+              <Form.Group inline width='equal'>
               <Field
                 name="level"
                 type="text"
                 component={SelectInput}
                 options={skillLevel}
-                placeholder="What's the desired skill level of players?"
+                placeholder="skill level of pickup"
               />
               <Field
                 name="type"
                 type="text"
                 component={SelectInput}
                 options={pickupType}
-                placeholder="What type of pickup game is it?"
+                placeholder="type of pickup"
               />
               <Field
                 name="maxCapacity"
                 type="number"
                 min={2}
                 component={TextInput}
-                placeholder="How many players is too many?"
+                placeholder="max players"
               />
+              </Form.Group>
               <Field
                 name="description"
                 type="text"
                 component={TextArea}
                 rows={3}
-                placeholder="Tell us about the pickup!"
+                placeholder="pickup description"
               />
               <Header sub color="purple" content="PICK UP DETAILS" />
-              <Field name="city" type="text" component={TextInput} placeholder="Pickup city?" />
+              <Field name="city" type="text" component={TextInput} placeholder="pickup city" />
               <Field
                 name="address"
                 type="text"
                 component={TextInput}
-                placeholder="Enter the pickup address"
+                placeholder="pick up address"
               />
-              <Field
+              {/* <Field
                 name="venue"
                 type="text"
                 component={TextInput}
                 placeholder="Enter the venue name"
-              />
+              /> */}
               <Field
                 name="date"
                 type="text"
                 component={DateInput}
-                placeholder="Date and time?"
+                placeholder="date and time"
                 dateFormat="YYYY-MM-DD HH:mm"
                 timeFormat="HH:mm"
                 timeCaption="time"
