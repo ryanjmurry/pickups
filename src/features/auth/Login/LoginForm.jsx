@@ -7,25 +7,34 @@ import TextInput from '../../../app/common/form/TextInput';
 import { login, socialLogin } from '../authActions';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-const loginHeaderStyle = {
-  fontFamily: 'Righteous',
-  fontSize: '4em'
-};
+const mapState = state => ({
+  auth: state.firebase.auth
+});
 
 const actions = {
   login,
   socialLogin
 };
 
+const loginHeaderStyle = {
+  fontFamily: 'Righteous',
+  fontSize: '4em'
+};
+
 const loginFormStyle = {
   width: '400px',
   margin: 'auto'
-}
+};
 
 class LoginForm extends Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.auth.isEmpty !== prevProps.auth.isEmpty) {
+      this.props.history.push('/pickups')
+    }
+  }
+
   handleFormSubmission = values => {
     this.props.login(values);
-    this.props.history.push('/pickups');
   };
 
   render() {
@@ -71,6 +80,6 @@ class LoginForm extends Component {
 }
 
 export default connect(
-  null,
+  mapState,
   actions
 )(reduxForm({ form: 'loginForm' })(LoginForm));
