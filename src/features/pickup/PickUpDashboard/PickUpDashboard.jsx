@@ -22,7 +22,7 @@ class PickupDashboard extends Component {
           <PickupDashboardSlogan auth={auth} />
         </div>
         <div style={{width: '800px', margin: 'auto'}}>
-          <PickupList />
+          <PickupList pickups={pickups}/>
         </div>
       </div>
     );
