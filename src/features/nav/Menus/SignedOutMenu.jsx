@@ -6,18 +6,11 @@ const menuStyles = {
   marginRight: '15px'
 };
 
-const createButtonStyles ={
-  fontSize: '0.8em'
-}
-
 const SignedOutMenu = () => {
   return (
     <Menu.Menu position="right" style={menuStyles}>
-      <Menu.Item style={createButtonStyles}>
-        <Button as={Link} to="/newpickup" basic color='purple'>
-          <Icon name="add" />
-          create pickup
-        </Button>
+      <Menu.Item as={Link} to="/pickups">
+        <span style={{ color: '#a333c8', fontWeight: 'bold' }}>view all pickups</span>
       </Menu.Item>
       <Menu.Item as={Link} to="/login">
         log in

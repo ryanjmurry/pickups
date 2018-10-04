@@ -6,18 +6,11 @@ const style = {
   marginRight: '15px'
 };
 
-const createButtonStyles = {
-  fontSize: '0.8em'
-};
-
 const SignedInMenu = ({ onLogOut, auth }) => {
   return (
     <Menu.Menu position="right">
-      <Menu.Item style={createButtonStyles}>
-        <Button as={Link} to="/newpickup" basic color='purple'>
-          <Icon name="add" />
-          create pickup
-        </Button>
+      <Menu.Item as={Link} to="/pickups">
+        <span style={{ color: '#a333c8', fontWeight: 'bold' }}>view all pickups</span>
       </Menu.Item>
       <Menu.Item style={style}>
         <Image avatar src={auth.photoURL || `https://api.adorable.io/avatars/80/${auth.uid}.png`} />

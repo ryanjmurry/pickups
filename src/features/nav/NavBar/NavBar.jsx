@@ -29,7 +29,7 @@ class NavBar extends Component {
     const { auth } = this.props
     return (
       <Menu size="huge" fixed="top" text style={navStyles}>
-        <Menu.Item as={Link} to='/pickups'>
+        <Menu.Item as={Link} to='/'>
           <Header style={logoText}>p i c k u p s</Header>
         </Menu.Item>
         {!auth.isEmpty && <SignedInMenu onLogOut={this.handleLogOut} auth={auth}/>}

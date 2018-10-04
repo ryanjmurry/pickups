@@ -1,36 +1,29 @@
 import React, { Component } from 'react';
-import PickupList from '../PickupList/PickupList';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { Segment, Container } from 'semantic-ui-react';
-import BackgroundSlideshow from 'react-background-slideshow';
-import dashBg from '../../../app/assets/dash-bg.jpg'
+import PickupDashboardHeader from './PickupDashboardHeader';
+import PickupDashboardSlogan from './PickupDashboardSlogan';
+import PickupList from '../PickupList/PickupList';
 
 const mapState = state => ({
-  pickups: state.firestore.ordered.pickups
+  pickups: state.firestore.ordered.pickups,
+  auth: state.firebase.auth
 });
-
-const headerSegmentStyles = {
-  height: '400px',
-};
 
 class PickupDashboard extends Component {
   render() {
-    const { pickups } = this.props;
+    const { pickups, auth } = this.props;
     return (
       <div>
-        <Segment style={headerSegmentStyles}>
-        <BackgroundSlideshow
-          images={[dashBg]}
-          disableInterval={true}
-          disableClick={true}
-        />
-          <Container>
-            <h1><span>p i c k u p s</span></h1>
-            <h3>get your game on!</h3>
-          </Container>
-        </Segment>
-        <PickupList pickups={pickups} />
+        <div style={{ position: 'relative', marginBottom: '-400px', zIndex: '-1' }}>
+          <PickupDashboardHeader />
+        </div>
+        <div style={{ position: 'relative', left: '150px', top: '180px', marginBottom: '190px' }}>
+          <PickupDashboardSlogan auth={auth} />
+        </div>
+        <div style={{width: '800px', margin: 'auto'}}>
+          <PickupList pickups={pickups}/>
+        </div>
       </div>
     );
   }
