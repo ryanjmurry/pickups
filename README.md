@@ -1,31 +1,37 @@
 # p i c k u p s
 
-#### _A web application bringing users together through organized recreational, table-top, and video game meetups, 10.08.18_
+#### A web application bringing users together through organized recreational, table-top, and video game meetups
 
-#### By _Ryan Murry_
+#### By _Ryan Murry, 10.08.18_
 
 ## Description
 Pickups is a web application in which users are able to sign up and begin viewing and creating pickup games of their own. Users can search and view a list of pickup games and register to attend if the game is not yet full. Still in its early stages, pickups will eventuall contain the ability to follow other users, communicate via the game chat, and view the location of games using the Google Maps API.
 
 ## Installing
-Complete the steps below to get the application running on your personal machine.
 
 Clone the repo from github
+
 `git clone https://github.com/ryanjmurry/pickups#updating-to-new-releases` 
 
 This program is dependent that you already have node installed on your machine and node package manager. Afterwards run the install command.
+
 `npm install`
 
 #### API Key Installation
 
 **Firebase**
+
 Go to https://console.firebase.google.com/ to sign up and create your database for your project. Select add Firebase to your web app to view api credentials.
 
 **src/config/firebaseConfig.js**
 
-Once in the root directory of the app, navigate to the config folder `cd src/app/config`
+Once in the root directory of the app, navigate to the config folder 
 
-In the config folder, create a file named firebaseConfig.js `touch firebaseConfig.js`
+`cd src/app/config`
+
+In the config folder, create a file named firebaseConfig.js 
+
+`touch firebaseConfig.js`
 
 Paste the api credentials from firebase into this file following the pattern below:
 
