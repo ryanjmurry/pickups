@@ -13,12 +13,12 @@ const PickupGame = ({ pickup }) => {
               <Header style={{ fontSize: '2.5em', marginBottom: '-2px' }}>
                 {pickup.title}
                 <div>
-                  <Icon name='time' size='tiny'/>
+                  <Icon name="time" size="tiny" />
                   <span style={{ fontSize: '0.5em', marginBottom: '-2px' }}>pick up date</span>
                 </div>
                 <div>
-                  <Icon name='map marker alternate' size='tiny'/>
-                <span style={{ fontSize: '0.5em' }}>{pickup.city}</span>
+                  <Icon name="map marker alternate" size="tiny" />
+                  <span style={{ fontSize: '0.5em' }}>{pickup.city}</span>
                 </div>
               </Header>
             </Segment>
@@ -27,25 +27,32 @@ const PickupGame = ({ pickup }) => {
             <Segment basic />
             <Segment basic>
               <div style={{ position: 'relative', top: '55px' }}>
-                <Button as={Link} to={`/pickup/${pickup.id}`} content="details" color="purple" fluid size="big" />
+                <Button
+                  as={Link}
+                  to={`/pickup/${pickup.id}`}
+                  content="details"
+                  color="purple"
+                  fluid
+                  size="big"
+                />
               </div>
             </Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment textAlign="right" basic>
-              <span style={{ marginRight: '10px', fontSize: '1em' }}>{pickup.type} / <span style={{fontStyle: 'italics'}}>{pickup.level}</span></span>
+              <span style={{ marginRight: '10px', fontSize: '1em' }}>
+                {pickup.type} / <span style={{ fontStyle: 'italics' }}>{pickup.level}</span>
+              </span>
               <Icon
                 name={
-                  pickup.type === 'recreational'
-                    ? 'basketball ball'
-                    : pickup.type === 'table top'
-                      ? 'cubes'
+                  pickup.type === 'rec'
+                    ? 'soccer'
+                    : pickup.type === 'table'
+                      ? 'puzzle piece'
                       : 'gamepad'
                 }
-                size="large"
-                circular
+                size="huge"
                 color="purple"
-                inverted
               />
             </Segment>
             <Segment basic />
