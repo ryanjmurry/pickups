@@ -37,8 +37,8 @@ const skillLevel = [
 ];
 
 const pickupType = [
-  { key: 'rec', text: 'Recreational', value: 'recreational' },
-  { key: 'table', text: 'Table-Top', value: 'table top' },
+  { key: 'rec', text: 'Recreational', value: 'rec' },
+  { key: 'table', text: 'Table-Top', value: 'table' },
   { key: 'video', text: 'Video', value: 'console' }
 ];
 
