@@ -13,7 +13,8 @@ const logoText = {
 };
 
 const navStyles = {
-  marginTop: '10px'
+  paddingTop: '10px',
+  backgroundColor: 'white'
 };
 
 const mapState = state => ({
