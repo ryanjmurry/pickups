@@ -28,11 +28,13 @@ const actions = {
 
 class PickupDetailPage extends Component {
   async componentDidMount() {
-    const { firestore, match, history } = this.props;
-    let pickup = await firestore.get(`pickups/${match.params.id}`);
-    if (!pickup.exists) {
-      history.push('/events');
-    }
+    const { firestore, match } = this.props;
+    await firestore.setListener(`pickups/${match.params.id}`);
+  }
+
+  async componentWillUnmount() {
+    const { firestore, match } = this.props;
+    await firestore.unsetListener(`pickups/${match.params.id}`);
   }
 
   render() {
