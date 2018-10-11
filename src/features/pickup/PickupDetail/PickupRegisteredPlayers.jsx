@@ -1,21 +1,25 @@
-import React from 'react'
-import { Segment, List, Image } from 'semantic-ui-react'
+import React from 'react';
+import { Segment, List, Item } from 'semantic-ui-react';
 
-const PickupRegisteredPlayers = ({ pickup, auth}) => {
-  console.log(pickup.attendees)
+const PickupRegisteredPlayers = ({ attendees }) => {
   return (
     <Segment basic>
-      <h1 style={{fontSize: '2em'}}>registered players</h1>
-      {/* <List>
-        {Object.keys(pickup.attendees).map(key => {
-          return <List.Item>
-            <Image avatar src={pickup.attendees.key.photoURL || `https://api.adorable.io/avatars/80/${key.uid}.png`} />
-            <h4>pickup.attendees.key.displayName</h4>
-          </List.Item>
-        })}
-      </List> */}
+      <h1 style={{ fontSize: '2em' }}>registered players</h1>
+      <List>
+        {attendees &&
+          attendees.map(attendee => (
+            <Item key={attendee.id}>
+              <Item.Image size="tiny" src={attendee.photoURL} />
+              <Item.Content verticalAlign="middle">
+                <Item.Header as="h3">
+                  <a>{attendee.displayName}</a>
+                </Item.Header>
+              </Item.Content>
+            </Item>
+          ))}
+      </List>
     </Segment>
-  )
-}
+  );
+};
 
-export default PickupRegisteredPlayers
+export default PickupRegisteredPlayers;
