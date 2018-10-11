@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+
 export const updateProfile = user => {
   return async (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -19,10 +20,11 @@ export const registerForPickupGame = pickup => {
     const firestore = getFirestore();
     const user = firestore.auth().currentUser;
     const photoURL = getState().firebase.profile.photoURL;
+    const uid = getState().firebase.auth.uid
     const attendee = {
       going: true,
       joinDate: Date.now(),
-      photoURL: photoURL || '/assets/user.png',
+      photoURL: photoURL || `https://api.adorable.io/avatars/80/${uid}.png`,
       displayName: user.displayName,
       host: false
     };
