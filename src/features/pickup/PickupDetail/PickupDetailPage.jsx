@@ -8,6 +8,7 @@ import PickupHeader from './PickupHeader';
 import PickupChat from './PickupChat';
 import PickupRegisteredPlayers from './PickupRegisteredPlayers';
 import PickupInformation from './PickupInformation';
+import { objectToArray } from '../../../app/common/util/helpers';
 
 const mapState = state => {
   let pickup = {};
@@ -36,6 +37,7 @@ class PickupDetailPage extends Component {
 
   render() {
     const { pickup, registerForPickupGame, unregisterForPickupGame, auth } = this.props;
+    const attendees = pickup && pickup.attendees && objectToArray(pickup.attendees)
     return (
       <div>
         <Segment>
@@ -57,7 +59,7 @@ class PickupDetailPage extends Component {
               </Grid.Column>
               <Grid.Column width={5}>
                 <Segment>
-                  <PickupRegisteredPlayers pickup={pickup} />
+                  <PickupRegisteredPlayers attendees={attendees} />
                 </Segment>
                 <Segment>
                   <PickupInformation pickup={pickup} auth={auth} />
