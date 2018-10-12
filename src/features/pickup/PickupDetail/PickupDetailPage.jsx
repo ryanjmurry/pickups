@@ -39,7 +39,9 @@ class PickupDetailPage extends Component {
 
   render() {
     const { pickup, registerForPickupGame, unregisterForPickupGame, auth } = this.props;
-    const attendees = pickup && pickup.attendees && objectToArray(pickup.attendees)
+    const attendees = pickup && pickup.attendees && objectToArray(pickup.attendees);
+    const isHost = pickup.hostUid === auth.uid;
+    const isGoing = attendees && attendees.some(attendee => attendee.id === auth.uid);
     return (
       <div>
         <Segment>
@@ -53,6 +55,8 @@ class PickupDetailPage extends Component {
                     auth={auth}
                     registerForPickupGame={registerForPickupGame}
                     unregisterForPickupGame={unregisterForPickupGame}
+                    isHost={isHost}
+                    isGoing={isGoing}
                   />
                 </Segment>
                 <Segment>
@@ -64,7 +68,7 @@ class PickupDetailPage extends Component {
                   <PickupRegisteredPlayers attendees={attendees} />
                 </Segment>
                 <Segment>
-                  <PickupInformation pickup={pickup} auth={auth} />
+                  <PickupInformation pickup={pickup} />
                 </Segment>
               </Grid.Column>
             </Grid.Row>
