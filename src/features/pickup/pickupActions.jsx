@@ -7,7 +7,8 @@ export const createPickup = pickup => {
   return async (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     const user = firestore.auth().currentUser;
-    const photoURL = getState().firebase.profile.photoURL;
+    const uid = getState().firebase.auth.uid; 
+    const photoURL = getState().firebase.profile.photoURL || `https://api.adorable.io/avatars/80/${uid}.png`;
     let newPickup = createNewPickup(user, photoURL, pickup);
     try {
       let createdPickup = await firestore.add(`pickups`, newPickup);
