@@ -1,6 +1,5 @@
 import moment from 'moment';
 
-
 export const updateProfile = user => {
   return async (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
@@ -20,7 +19,8 @@ export const registerForPickupGame = pickup => {
     const firestore = getFirestore();
     const user = firestore.auth().currentUser;
     const photoURL = getState().firebase.profile.photoURL;
-    const uid = getState().firebase.auth.uid
+    const uid = getState().firebase.auth.uid;
+    let currentCapacity = getState().firestore.ordered.pickups[0].currentCapacity;
     const attendee = {
       going: true,
       joinDate: Date.now(),
@@ -30,7 +30,8 @@ export const registerForPickupGame = pickup => {
     };
     try {
       await firestore.update(`pickups/${pickup.id}`, {
-        [`attendees.${user.uid}`]: attendee
+        [`attendees.${user.uid}`]: attendee,
+        currentCapacity: currentCapacity + 1
       });
       await firestore.set(`pickup_attendee/${pickup.id}_${user.uid}`, {
         pickupId: pickup.id,
@@ -48,11 +49,13 @@ export const unregisterForPickupGame = pickup => {
   return async (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
     const user = firestore.auth().currentUser;
-    console.log(pickup.id)
-    console.log(user.uid)
+    let currentCapacity = getState().firestore.ordered.pickups[0].currentCapacity;
+    console.log(pickup.id);
+    console.log(user.uid);
     try {
       await firestore.update(`pickups/${pickup.id}`, {
-        [`attendees.${user.uid}`]: firestore.FieldValue.delete()
+        [`attendees.${user.uid}`]: firestore.FieldValue.delete(),
+        currentCapacity: currentCapacity - 1
       });
       await firestore.delete(`pickup_attendee/${pickup.id}_${user.uid}`);
     } catch (error) {
