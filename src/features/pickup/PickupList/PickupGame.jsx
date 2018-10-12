@@ -3,7 +3,7 @@ import { Button, Segment, Grid, Progress, Header, Icon } from 'semantic-ui-react
 import { Link } from 'react-router-dom';
 
 const PickupGame = ({ pickup }) => {
-  let percentFull = (pickup.currentCapacity / pickup.maxCapacity).toFixed(2);
+  let percentFull = ((pickup.currentCapacity / pickup.maxCapacity) * 100).toFixed(0);
   return (
     <Segment style={{ width: '700px', margin: '0 auto 15px' }}>
       <Grid columns={3}>
@@ -66,7 +66,7 @@ const PickupGame = ({ pickup }) => {
                     </Grid.Column>
                     <Grid.Column width={9}>
                       {`${pickup.currentCapacity} / ${pickup.maxCapacity}`}
-                      <Progress indicating size="small" />
+                      <Progress indicating size='small' percent={percentFull}/>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
